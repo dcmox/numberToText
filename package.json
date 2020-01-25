@@ -1,5 +1,5 @@
 {
-  "name": "numbertotext",
+  "name": "@moxy/numbertotext",
   "version": "1.0.0",
   "private": false,
   "description": "Number to Text Converter",
