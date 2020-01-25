@@ -27,6 +27,9 @@ var digitsToGroup = [
     { digit: 64, text: 'vigintillion' },
 ];
 exports.numberToText = function (number) {
+    if (typeof number === 'number' && number.toString().length > 16) {
+        throw new Error('Numbers of length 16 or greater must be passed as a string due to rounding errors!');
+    }
     var numString = number.toString();
     var digits = numString.length;
     if (number >= 1 && number <= 12) {

@@ -22,10 +22,11 @@ describe('numberToText test suite', () => {
             { num: 25000, expected: 'twenty five thousand' },
             { num: 25000000, expected: 'twenty five million' },
             { num: 3552923202, expected: 'three billion five hundred fifty two million nine hundred twenty three thousand two hundred two' },
-            { num: 5905385238923578253, expected: 'five quintillion nine hundred five quadrillion three hundred eighty five trillion two hundred thirty eight billion nine hundred twenty three million five hundred seventy eight thousand' },
+            { num: '5905385238923578253', expected: 'five quintillion nine hundred five quadrillion three hundred eighty five trillion two hundred thirty eight billion nine hundred twenty three million five hundred seventy eight thousand two hundred fifty three' },
         ]
         tests.forEach((test: any) => {
             assert.equal(testSuite.numberToText(test.num), test.expected)
         })
+        assert.throws(() => testSuite.numberToText(123456789101112131415))
     })
 })

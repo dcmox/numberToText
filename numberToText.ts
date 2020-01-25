@@ -28,6 +28,9 @@ const digitsToGroup = [
 ]
 
 export const numberToText = (number: any): string => {
+    if (typeof number === 'number' && number.toString().length > 16) {
+        throw new Error('Numbers of length 16 or greater must be passed as a string due to rounding errors!')
+    }
     const numString: string = number.toString()
     const digits: number = numString.length
 
