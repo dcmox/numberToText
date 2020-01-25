@@ -1,6 +1,6 @@
 {
   "name": "@dcmox/numbertotext",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "Number to Text Converter",
   "main": "numberToText.js",

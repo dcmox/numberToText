@@ -28,11 +28,11 @@ const digitsToGroup = [
 ]
 
 export const numberToText = (number: any): string => {
-    if (typeof number === 'number' && number.toString().length > 16) {
+    let num: string = number.toString()
+    const digits: number = num.length
+    if (typeof number === 'number' && digits > 16) {
         throw new Error('Numbers of length 16 or greater must be passed as a string due to rounding errors!')
     }
-    const numString: string = number.toString()
-    const digits: number = numString.length
 
     if (number >= 1 && number <= 12) { return segOne[number - 1]  }
     if (number >= 13 && number <= 19) { return prefix[number - 12] + 'teen' }
@@ -43,9 +43,9 @@ export const numberToText = (number: any): string => {
     }
 
     let result: string = ''
-    let num: string = number.toString()
 
     const segLength: number = digits % 3
+
     if (segLength === 0) {
         if (num[0] !== '0') { 
             result += segOne[parseInt(num[0], 10) - 1] + ' hundred '

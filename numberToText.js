@@ -27,11 +27,11 @@ var digitsToGroup = [
     { digit: 64, text: 'vigintillion' },
 ];
 exports.numberToText = function (number) {
-    if (typeof number === 'number' && number.toString().length > 16) {
+    var num = number.toString();
+    var digits = num.length;
+    if (typeof number === 'number' && digits > 16) {
         throw new Error('Numbers of length 16 or greater must be passed as a string due to rounding errors!');
     }
-    var numString = number.toString();
-    var digits = numString.length;
     if (number >= 1 && number <= 12) {
         return segOne[number - 1];
     }
@@ -44,7 +44,6 @@ exports.numberToText = function (number) {
             : prefix[Math.floor(number / 10) - 2] + 'ty';
     }
     var result = '';
-    var num = number.toString();
     var segLength = digits % 3;
     if (segLength === 0) {
         if (num[0] !== '0') {
