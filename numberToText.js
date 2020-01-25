@@ -58,10 +58,10 @@ exports.numberToText = function (number) {
         if (comp >= 1 && comp <= 12) {
             result += segOne[comp - 1] + ' ';
         }
-        if (comp >= 13 && comp <= 19) {
+        else if (comp >= 13 && comp <= 19) {
             result += prefix[comp - 12] + 'teen' + ' ';
         }
-        if (comp >= 20 && comp < 100) {
+        else if (comp >= 20 && comp < 100) {
             result += comp % 10
                 ? prefix[Math.floor(comp / 10) - 2] + 'ty ' + segOne[comp % 10 - 1] + ' '
                 : prefix[Math.floor(comp / 10) - 2] + 'ty ';
@@ -80,3 +80,4 @@ exports.numberToText = function (number) {
     }
     return result.trim();
 };
+exports["default"] = exports.numberToText;
